@@ -6,7 +6,7 @@ const pagesSlice = createSlice({
   initialState: {
     pages: [{ content: '<p>This is the initial content of the editor.</p>', color: '#ffffff' }],
     currentPageIndex: 0,
-    displayColorPicker: true,
+    displayColorPicker: false,
   },
   reducers: {
     setPageContent: (state, action) => {

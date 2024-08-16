@@ -23,7 +23,7 @@ const EditorComponent = ({ initialContent }) => {
   const [initialContentState, setInitialContentState] = useState('<p>Hi</p>');
   useEffect(() => {
     setInitialContentState(initialContent);
-  }, [currentPage.color]);
+  }, []);
   return (
     <Editor
       tinymceScriptSrc="/tinymce/tinymce.min.js"
@@ -70,8 +70,9 @@ const EditorComponent = ({ initialContent }) => {
             text: 'Change Background',
             fetch: (callback) => {
               const items = [
-                { type: 'menuitem', text: 'Green', onAction: () => dispatch(setPageBackgroundColor('green')) },
-                { type: 'menuitem', text: 'Yellow', onAction: () => dispatch(setPageBackgroundColor('yellow')) },
+                { type: 'menuitem', text: 'Fancy Green', onAction: () => dispatch(setPageBackgroundColor('#007acc')) },
+                { type: 'menuitem', text: 'Fancy Yellow', onAction: () => dispatch(setPageBackgroundColor('#f7dc6f')) },
+                { type: 'menuitem', text: 'Pastel Pink', onAction: () => dispatch(setPageBackgroundColor('#ffaef')) },
                 { type: 'menuitem', text: 'Custom', onAction: () => dispatch(displayColorPicker(true)) },
               ];
               callback(items);
