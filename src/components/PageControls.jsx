@@ -24,7 +24,7 @@ const PageControls = () => {
   };
 
   return (
-    <div className="flex justify-between p-4">
+    <div className="flex justify-between p-2">
       <div className="flex flex-wrap">
         {pages.map((_, index) => (
           <button
@@ -43,17 +43,17 @@ const PageControls = () => {
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
-              fill="white" // Changed from 'currentColor' to 'white'
-              className="bi bi-x ml-1 cursor-pointer mt-1" // Added 'mt-1' to keep top margin
+              fill="white"
+              className="bi bi-x ml-1 cursor-pointer mt-1"
               viewBox="0 0 16 16"
             >
               <line x1="1" y1="11"
                 x2="11" y2="1"
-                stroke="white" // Changed from 'black' to 'white'
+                stroke="white"
                 stroke-width="2" />
               <line x1="1" y1="1"
                 x2="11" y2="11"
-                stroke="white" // Changed from 'black' to 'white'
+                stroke="white"
                 stroke-width="2" />
             </svg>
           </button>

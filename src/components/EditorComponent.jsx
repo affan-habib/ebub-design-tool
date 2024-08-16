@@ -4,15 +4,21 @@ import { Editor } from '@tinymce/tinymce-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPageContent, setPageBackgroundColor, displayColorPicker } from '../store/pagesSlice';
 
-const EditorComponent = ({ initialContent }) => {
+const EditorComponent = () => {
   const editorRef = useRef(null);
+  const pages = useSelector((state) => state.pages.pages);
+  const currentPageIndex = useSelector((state) => state.pages.currentPageIndex);
+  const currentPage = pages[currentPageIndex];
+  console.log(currentPageIndex, currentPageIndex, 'hello');
   const dispatch = useDispatch();
-  const currentPage = useSelector((state) => state.pages.pages[state.pages.currentPageIndex]);
+  useEffect(() => {
+    setInitialContentState(currentPage.content);
+    // console.log(cur);
+  }, [currentPageIndex]);
 
-  // Sync editor content and background color with current page
   useEffect(() => {
     if (editorRef.current) {
-      editorRef.current.setContent(initialContent);
+      editorRef.current.setContent(currentPage.content);
       editorRef.current.getBody().style.backgroundColor = currentPage.color;
     }
   }, [currentPage.color]);
@@ -20,14 +26,13 @@ const EditorComponent = ({ initialContent }) => {
   const handleEditorChange = (newContent) => {
     dispatch(setPageContent(newContent));
   };
-  const [initialContentState, setInitialContentState] = useState('<p>Hi</p>');
-  useEffect(() => {
-    setInitialContentState(initialContent);
-  }, []);
+
+  const [initialContentState, setInitialContentState] = useState('<p>hello there</p>');
+
   return (
     <Editor
       tinymceScriptSrc="/tinymce/tinymce.min.js"
-      onInit={(_evt, editor) => (editorRef.current = editor)}
+      onInit={(_evt, editor) => editorRef.current = editor}
       initialValue={initialContentState}
       onEditorChange={handleEditorChange}
       init={{
@@ -51,18 +56,6 @@ const EditorComponent = ({ initialContent }) => {
             margin: 0;
             padding: 0;
             background-color: ${currentPage.color};
-          }
-          div[style*="width: 8.5in; height: 11in;"] {
-            width: 8.5in;
-            height: 11in;
-            border: 1px solid black;
-            margin: 20px auto;
-          }
-          .editor-layer {
-            position: relative;
-            padding: 10px;
-            border: 1px dashed #ccc;
-            margin: 10px 0;
           }
         `,
         setup: (editor) => {

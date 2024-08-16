@@ -16,7 +16,7 @@ const pagesSlice = createSlice({
       state.pages[state.currentPageIndex].color = action.payload;
     },
     addPage: (state) => {
-      state.pages.push({ content: '', color: '#ffffff' });
+      state.pages.push({ content: '<p>This is the initial content of the editor.</p>', color: '#ffffff' });
       state.currentPageIndex = state.pages.length - 1;
     },
     switchPage: (state, action) => {
