@@ -30,25 +30,31 @@ const PageControls = () => {
           <button
             key={index}
             onClick={() => handleSwitchPage(index)}
-            className={`flex items-center ${index === currentPageIndex ? '' : 'bg-gray-800'} m-1`}
+            className={`flex items-center justify-center ${index === currentPageIndex ? '' : 'bg-gray-800'} m-1`}
           >
-            Page {index + 1}
+            <span className="mr-2">Page {index + 1}</span>
             <svg
               onClick={(e) => {
                 e.stopPropagation();
                 handleDeletePage(index);
               }}
+              viewPort="0 0 12 12"
+              version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
-              fill="currentColor"
-              className="bi bi-x ml-1 cursor-pointer"
+              fill="white" // Changed from 'currentColor' to 'white'
+              className="bi bi-x ml-1 cursor-pointer mt-1" // Added 'mt-1' to keep top margin
               viewBox="0 0 16 16"
             >
-              <path
-                fillRule="evenodd"
-                d="M1.5 1.5a.5.5 0 0 1 .707 0L8 7.293 14.793 1.5a.5.5 0 0 1 .707.707L8.707 8l6.793 6.793a.5.5 0 0 1-.707.707L8 8.707l-6.793 6.793a.5.5 0 0 1-.707-.707L7.293 8 1.5 1.207a.5.5 0 0 1 0-.707z"
-              />
+              <line x1="1" y1="11"
+                x2="11" y2="1"
+                stroke="white" // Changed from 'black' to 'white'
+                stroke-width="2" />
+              <line x1="1" y1="1"
+                x2="11" y2="11"
+                stroke="white" // Changed from 'black' to 'white'
+                stroke-width="2" />
             </svg>
           </button>
         ))}
