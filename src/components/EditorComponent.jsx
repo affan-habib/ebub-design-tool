@@ -1,32 +1,34 @@
 // EditorComponent.js
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPageContent, setPageBackgroundColor } from '../store/pagesSlice';
+import { setPageContent, setPageBackgroundColor, displayColorPicker } from '../store/pagesSlice';
 
-const EditorComponent = ({ initialContent, onContentChange }) => {
+const EditorComponent = ({ initialContent }) => {
   const editorRef = useRef(null);
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.pages.pages[state.pages.currentPageIndex]);
-  
+
   // Sync editor content and background color with current page
   useEffect(() => {
     if (editorRef.current) {
       editorRef.current.setContent(initialContent);
       editorRef.current.getBody().style.backgroundColor = currentPage.color;
     }
-  }, [initialContent, currentPage.color]);
+  }, [currentPage.color]);
 
   const handleEditorChange = (newContent) => {
     dispatch(setPageContent(newContent));
-    onContentChange(newContent);
   };
-
+  const [initialContentState, setInitialContentState] = useState('<p>Hi</p>');
+  useEffect(() => {
+    setInitialContentState(initialContent);
+  }, [currentPage.color]);
   return (
     <Editor
       tinymceScriptSrc="/tinymce/tinymce.min.js"
       onInit={(_evt, editor) => (editorRef.current = editor)}
-      initialValue={initialContent}
+      initialValue={initialContentState}
       onEditorChange={handleEditorChange}
       init={{
         height: '100vh',
@@ -39,8 +41,8 @@ const EditorComponent = ({ initialContent, onContentChange }) => {
           'media', 'table', 'preview', 'help', 'wordcount'
         ],
         toolbar: 'blocks | bold italic forecolor | alignleft aligncenter ' +
-                 'alignright alignjustify | bullist numlist outdent indent | ' +
-                 'removeformat | table | image media | help | fontsizeselect | changeBackground',
+          'alignright alignjustify | bullist numlist outdent indent | ' +
+          'removeformat | table | image media | help | fontsizeselect | changeBackground',
         content_style: `
           body {
             height: 100vh;
@@ -70,7 +72,7 @@ const EditorComponent = ({ initialContent, onContentChange }) => {
               const items = [
                 { type: 'menuitem', text: 'Green', onAction: () => dispatch(setPageBackgroundColor('green')) },
                 { type: 'menuitem', text: 'Yellow', onAction: () => dispatch(setPageBackgroundColor('yellow')) },
-                { type: 'menuitem', text: 'Custom', onAction: () => onContentChange('custom') },
+                { type: 'menuitem', text: 'Custom', onAction: () => dispatch(displayColorPicker(true)) },
               ];
               callback(items);
             },

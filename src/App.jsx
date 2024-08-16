@@ -10,11 +10,9 @@ const App = () => {
   const pages = useSelector((state) => state.pages.pages);
   const currentPageIndex = useSelector((state) => state.pages.currentPageIndex);
   const currentPage = pages[currentPageIndex];
-  const [backgroundColor, setBackgroundColor] = useState(currentPage.color);
-  const [displayColorPicker, setDisplayColorPicker] = useState(false);
-const dispatch = useDispatch();
+  const displayColorPicker = useSelector((state) => state.pages.displayColorPicker);
+  const dispatch = useDispatch();
   const handleColorChange = (color) => {
-    setBackgroundColor(color);
     dispatch(setPageBackgroundColor(color));
   };
 
@@ -24,18 +22,14 @@ const dispatch = useDispatch();
 
   return (
     <div className="relative">
-      <PageControls />
-      <EditorComponent 
-        initialContent={currentPage.content}
-        onContentChange={(content) => dispatch(setPageContent (content))}
-      />
       {displayColorPicker && (
-        <ColorPicker 
-          color={backgroundColor}
-          onColorChange={handleColorChange}
-          onClose={handleCloseColorPicker}
-        />
+        <ColorPicker />
       )}
+      <PageControls />
+      <EditorComponent
+        initialContent={currentPage.content}
+
+      />
     </div>
   );
 };
