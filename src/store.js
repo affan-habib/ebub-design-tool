@@ -7,16 +7,20 @@ import { combineReducers } from 'redux';
 const editorSlice = createSlice({
   name: 'editor',
   initialState: {
-    content: '<p>This is the initial content of the editor.</p>'
+    content: '<p>This is the initial content of the editor.</p>',
+    color: '#ffffff'
   },
   reducers: {
     setContent: (state, action) => {
       state.content = action.payload;
+    },
+    setBackgroundColor: (state, action) => {
+      state.color = action.payload;
     }
   }
 });
 
-export const { setContent } = editorSlice.actions;
+export const { setContent, setBackgroundColor } = editorSlice.actions;
 
 const rootReducer = combineReducers({
   editor: editorSlice.reducer,
