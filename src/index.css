@@ -31,6 +31,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: rgb(255, 255, 255);
 }
 
 h1 {
@@ -71,7 +72,6 @@ button:focus-visible {
 }
 
 .body-class {
-  background-color: black;
   flex: 1;
   overflow: hidden;
   height: 100vh;
