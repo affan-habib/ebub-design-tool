@@ -3,24 +3,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import createIdbStorage from 'redux-persist-indexeddb-storage';
 import { combineReducers } from 'redux';
 
-// Create a reducer slice (example)
-const editorSlice = createSlice({
-  name: 'editor',
-  initialState: {
-    content: '<p>This is the initial content of the editor.</p>',
-    color: '#ffffff'
-  },
-  reducers: {
-    setContent: (state, action) => {
-      state.content = action.payload;
-    },
-    setBackgroundColor: (state, action) => {
-      state.color = action.payload;
-    }
-  }
-});
-
-export const { setContent, setBackgroundColor } = editorSlice.actions;
+// Create a reducer slice (example
 
 // Create a reducer slice for pages
 const pagesSlice = createSlice({
@@ -42,14 +25,24 @@ const pagesSlice = createSlice({
     },
     switchPage: (state, action) => {
       state.currentPageIndex = action.payload;
+    },
+    deletePage: (state, action) => {
+      const indexToDelete = action.payload; // Get the index to delete
+      state.pages.splice(indexToDelete, 1); // Remove the page at the specified index
+      if (state.currentPageIndex >= state.pages.length) {
+        state.currentPageIndex = state.pages.length - 1; // Adjust current index if needed
+      }
+      // Ensure currentPageIndex is not negative
+      if (state.currentPageIndex < 0) {
+        state.currentPageIndex = 0; // Reset to first page if all pages are deleted
+      }
     }
   }
 });
 
-export const { setPageContent, setPageBackgroundColor, addPage, switchPage } = pagesSlice.actions;
+export const { setPageContent, setPageBackgroundColor, addPage, switchPage, deletePage } = pagesSlice.actions;
 
 const rootReducer = combineReducers({
-  editor: editorSlice.reducer,
   pages: pagesSlice.reducer, // Add pages reducer
 });
 
