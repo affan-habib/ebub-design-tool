@@ -52,7 +52,7 @@ const EditorComponent = () => {
           body {
             height: 100vh;
             width: 100vw;
-            overflow: hidden;
+            overflow: scroll;
             margin: 0;
             padding: 0;
             background-color: ${currentPage.color};
