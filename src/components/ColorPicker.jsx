@@ -1,6 +1,6 @@
 // ColorPicker.js
 import React from 'react';
-import { ChromePicker } from 'react-color';
+import { PhotoshopPicker } from 'react-color';
 import { displayColorPicker, setPageBackgroundColor } from '../store/pagesSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -26,7 +26,7 @@ const ColorPicker = () => {
         style={{ position: 'absolute', top: '0px', right: '0px', bottom: '0px', left: '0px' }}
         onClick={() => dispatch(displayColorPicker(false))}
       />
-      <ChromePicker
+      <PhotoshopPicker
         color={currentPage.color}
         onChange={(color) => dispatch(setPageBackgroundColor(color.hex))}
       />
