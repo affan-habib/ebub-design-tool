@@ -19,7 +19,7 @@ const EditorComponent = () => {
   useEffect(() => {
     if (editorRef.current) {
       editorRef.current.setContent(currentPage.content);
-      editorRef.current.getBody().style.backgroundColor = currentPage.color;
+      // editorRef.current.getBody().style.backgroundColor = currentPage.color;
     }
   }, [currentPage.color]);
 
@@ -27,7 +27,7 @@ const EditorComponent = () => {
     dispatch(setPageContent(newContent));
   };
 
-  const [initialContentState, setInitialContentState] = useState('<p>hello there</p>');
+  const [initialContentState, setInitialContentState] = useState('');
 
   return (
     <Editor
@@ -50,12 +50,16 @@ const EditorComponent = () => {
           'removeformat | table | image media | help | fontsizeselect | changeBackground',
         content_style: `
           body {
-            height: 100vh;
-            width: 100vw;
+            width: 210mm;
+            height: 297mm;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: ${currentPage.color}; /* Changed to dynamically set background color */
             overflow: scroll;
-            margin: 0;
-            padding: 0;
-            background-color: ${currentPage.color};
+            margin: 0 auto;
+            margin-bottom: 100px;
+            margin-top: 100px;
+            padding: 40px;
           }
         `,
         setup: (editor) => {
