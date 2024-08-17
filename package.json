@@ -24,7 +24,8 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "redux-persist-indexeddb-storage": "^1.0.4",
-    "tinymce": "^7.3.0"
+    "tinymce": "^7.3.0",
+    "use-image": "^1.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",

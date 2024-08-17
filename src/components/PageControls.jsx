@@ -30,7 +30,7 @@ const PageControls = () => {
           <button
             key={index}
             onClick={() => handleSwitchPage(index)}
-            className={`flex items-center justify-center ${index === currentPageIndex ? '' : 'bg-gray-800'} m-1`}
+            className={`flex items-center justify-center ${index !== currentPageIndex ? 'bg-gray-200 text-gray-900' : 'bg-gray-800'} m-1`}
           >
             <span className="mr-2">Page {index + 1}</span>
             <svg
@@ -43,17 +43,17 @@ const PageControls = () => {
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
-              fill="white"
+              fill="currentColor"
               className="bi bi-x ml-1 cursor-pointer mt-1"
               viewBox="0 0 16 16"
             >
               <line x1="1" y1="11"
                 x2="11" y2="1"
-                stroke="white"
+                stroke="tomato"
                 stroke-width="2" />
               <line x1="1" y1="1"
                 x2="11" y2="11"
-                stroke="white"
+                stroke="tomato"
                 stroke-width="2" />
             </svg>
           </button>

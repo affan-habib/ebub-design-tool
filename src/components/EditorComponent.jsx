@@ -31,7 +31,6 @@ const EditorComponent = () => {
 
   return (
     <Editor
-      on
       tinymceScriptSrc="/tinymce/tinymce.min.js"
       onInit={(_evt, editor) => editorRef.current = editor}
       initialValue={initialContentState}
