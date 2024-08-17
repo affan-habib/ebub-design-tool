@@ -23,7 +23,7 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  
+
     `        
       <div style="position: relative; background-color: #f9f9f9; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); border: 1px solid #ddd; border-radius: 8px;">
         <div style="position: absolute; top: 30px; width: 100%; height: 200px; background-image: url('https://picsum.photos/800/400'); background-size: cover; background-position: center;"></div>
@@ -33,7 +33,7 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  
+
     `        
       <div style="position: relative; background-color: #e1e1e1; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);">
         <div style="position: absolute; top: 20px;  width: calc(100% - 40px); height: 200px; background-image: url('https://picsum.photos/800/500'); background-size: cover; background-position: center;"></div>
@@ -43,7 +43,7 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  
+
     `        
       <div style="position: relative; background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
         <div style="position: absolute; top: 20px; width: 100%; height: 200px; background-color: #3498db; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">Magazine Cover</div>
@@ -53,7 +53,7 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  
+
     `        
       <div style="position: relative; background-color: #f4f4f4; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
         <div style="position: absolute; top: 20px; left: 20px; width: 100%; height: 200px; background-image: url('https://picsum.photos/800/600'); background-size: cover; background-position: center;"></div>
@@ -63,9 +63,64 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  ];
-  
-  export const getRandomHtmlDesign = () => {
+    `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-weight: bold;">Month Name</span>
+            <span style="font-weight: bold;">Year</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; max-width: 500px; margin: auto;">
+        <!-- Calendar Header -->
+        <div style="text-align: center; font-weight: bold;">Sun</div>
+        <div style="text-align: center; font-weight: bold;">Mon</div>
+        <div style="text-align: center; font-weight: bold;">Tue</div>
+        <div style="text-align: center; font-weight: bold;">Wed</div>
+        <div style="text-align: center; font-weight: bold;">Thu</div>
+        <div style="text-align: center; font-weight: bold;">Fri</div>
+        <div style="text-align: center; font-weight: bold;">Sat</div>
+        
+        <!-- Blank spaces before the 1st -->
+        <div></div> <!-- Sun -->
+        <div></div> <!-- Mon -->
+        <div></div> <!-- Tue -->
+        <div></div> <!-- Wed -->
+        <div></div> <!-- Thu -->
+        
+        <!-- Calendar Days -->
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">2</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">3</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">4</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">5</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">6</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">7</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">8</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">9</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">10</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">11</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">12</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">13</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">14</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">15</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">16</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">17</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">18</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">19</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">20</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">21</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">22</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">23</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">24</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">25</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">26</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">27</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">28</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">29</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">30</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">31</div>
+    </div>`,
+];
+
+export const getRandomHtmlDesign = () => {
     const randomIndex = Math.floor(Math.random() * htmlDesigns.length);
     return htmlDesigns[randomIndex];
-  };
+};
