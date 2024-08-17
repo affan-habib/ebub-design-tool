@@ -142,10 +142,10 @@ const PaintApp = () => {
           }}
         />
       </div>
-      <div className="mt-4">
+      <div className="mx-auto">
         <Stage
-          width={window.innerWidth}
-          height={window.innerHeight}
+          width={600}
+          height={850}
           className="border border-gray-600"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
