@@ -124,3 +124,5 @@ export const getRandomHtmlDesign = () => {
     const randomIndex = Math.floor(Math.random() * htmlDesigns.length);
     return htmlDesigns[randomIndex];
 };
+
+export const getAllDesigns = () => [...htmlDesigns];
