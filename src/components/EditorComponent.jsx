@@ -1,4 +1,3 @@
-// EditorComponent.js
 import React, { useRef, useEffect, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,17 +8,14 @@ const EditorComponent = () => {
   const pages = useSelector((state) => state.pages.pages);
   const currentPageIndex = useSelector((state) => state.pages.currentPageIndex);
   const currentPage = pages[currentPageIndex];
-  console.log(currentPageIndex, currentPageIndex, 'hello');
   const dispatch = useDispatch();
   useEffect(() => {
     setInitialContentState(currentPage.content);
-    // console.log(cur);
   }, [currentPageIndex]);
 
   useEffect(() => {
     if (editorRef.current) {
       editorRef.current.setContent(currentPage.content);
-      // editorRef.current.getBody().style.backgroundColor = currentPage.color;
     }
   }, [currentPage.color]);
 
@@ -37,7 +33,7 @@ const EditorComponent = () => {
       onEditorChange={handleEditorChange}
       init={{
         height: '100vh',
-        menubar: true,
+        menubar: false,
         branding: false,
         promotion: false,
         plugins: [
@@ -45,16 +41,14 @@ const EditorComponent = () => {
           'searchreplace', 'visualblocks', 'code', 'fullscreen', 'insertdatetime',
           'media', 'table', 'preview', 'help', 'wordcount'
         ],
-        toolbar: 'blocks | bold italic forecolor | alignleft aligncenter ' +
-          'alignright alignjustify | bullist numlist outdent indent | ' +
-          'removeformat | table | image media | help | fontsizeselect | changeBackground',
+        toolbar: 'blocks fontsize fontfamily | bold italic forecolor | alignleft aligncenter ' +
+          'alignright alignjustify | bullist numlist outdent indent | table | image media | fontsizeselect | changeBackground',
         content_style: `
           body {
             width: 210mm;
             height: 297mm;
             border: 1px solid #ccc;
             border-radius: 8px;
-            background-color: ${currentPage.color}; /* Changed to dynamically set background color */
             overflow: scroll;
             margin: 0 auto;
             margin-bottom: 100px;

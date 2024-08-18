@@ -30,7 +30,7 @@ const PageControls = () => {
           <button
             key={index}
             onClick={() => handleSwitchPage(index)}
-            className={`flex items-center justify-center ${index !== currentPageIndex ? 'bg-gray-200 text-gray-900' : 'bg-gray-800'} m-1`}
+            className={`flex items-center justify-center ${index !== currentPageIndex ? 'bg-gray-200 text-gray-900' : 'bg-gray-800 text-white'} m-1 px-2 rounded-md`}
           >
             <span className="mr-2">Page {index + 1}</span>
             <svg
