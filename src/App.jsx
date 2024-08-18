@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import EditorComponent from './components/EditorComponent';
 import ColorPicker from './components/ColorPicker';
 import PageControls from './components/PageControls';
+import LeftSidebar from './components/LeftSidebar';
+import RightSidebar from './components/RightSidebar';
 
 const App = () => {
   const displayColorPicker = useSelector((state) => state.pages.displayColorPicker);
@@ -14,6 +16,8 @@ const App = () => {
       )}
       <PageControls />
       <EditorComponent />
+      <LeftSidebar />
+      <RightSidebar />
     </div>
   );
 };
