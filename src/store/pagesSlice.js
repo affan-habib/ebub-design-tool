@@ -6,10 +6,12 @@ const pagesSlice = createSlice({
   name: 'pages',
   initialState: {
     pages: [{
-      content: ''
+      content: '',
+      color: '#ffffff', // Ensure color is initialized
     }],
     currentPageIndex: 0,
     displayColorPicker: false,
+    scale: 1, // Add scale property
   },
   reducers: {
     setPageContent: (state, action) => {
@@ -17,6 +19,9 @@ const pagesSlice = createSlice({
     },
     setPageBackgroundColor: (state, action) => {
       state.pages[state.currentPageIndex].color = action.payload;
+    },
+    setScale: (state, action) => { // New reducer for scale
+      state.scale = action.payload;
     },
     addPage: (state) => {
       state.pages.push({
@@ -44,6 +49,6 @@ const pagesSlice = createSlice({
   },
 });
 
-export const { setPageContent, setPageBackgroundColor, addPage, switchPage, deletePage, displayColorPicker } = pagesSlice.actions;
+export const { setPageContent, setPageBackgroundColor, setScale, addPage, switchPage, deletePage, displayColorPicker } = pagesSlice.actions;
 
 export default pagesSlice.reducer;
