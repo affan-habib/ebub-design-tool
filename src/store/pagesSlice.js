@@ -1,13 +1,10 @@
 // src/store/pagesSlice.js
 import { createSlice } from '@reduxjs/toolkit';
-import { getRandomHtmlDesign } from '../data/htmlStrings'; // Import the function
 
 const pagesSlice = createSlice({
   name: 'pages',
   initialState: {
-    pages: [{
-      content: ''
-    }],
+    pages: [],
     currentPageIndex: 0,
     displayColorPicker: false,
   },
@@ -18,10 +15,14 @@ const pagesSlice = createSlice({
     setPageBackgroundColor: (state, action) => {
       state.pages[state.currentPageIndex].color = action.payload;
     },
+    setMargin: (state, action) => {
+      state.pages[state.currentPageIndex].margin = action.payload;
+    },
     addPage: (state) => {
       state.pages.push({
-        content: getRandomHtmlDesign(),
+        content: '',
         color: '#ffffff',
+        margin: '20px',
       });
       state.currentPageIndex = state.pages.length - 1;
     },
@@ -41,9 +42,12 @@ const pagesSlice = createSlice({
     displayColorPicker: (state, action) => {
       state.displayColorPicker = action.payload;
     },
+    addStudyAid: (state, action) => {
+      state.pages[state.currentPageIndex].content += action.payload;
+    },
   },
 });
 
-export const { setPageContent, setPageBackgroundColor, addPage, switchPage, deletePage, displayColorPicker } = pagesSlice.actions;
+export const { setPageContent, setPageBackgroundColor, addPage, switchPage, deletePage, displayColorPicker, setMargin, addStudyAid } = pagesSlice.actions;
 
 export default pagesSlice.reducer;

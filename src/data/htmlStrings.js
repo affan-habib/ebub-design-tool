@@ -1,5 +1,5 @@
 const htmlDesigns = [
-    `        
+  `        
       <div style="position: relative; background-image: url('https://picsum.photos/800/1200'); background-size: cover; background-position: center; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);">
         <div style="position: absolute; top: 50px; left: 50px; width: 150px; height: 150px; background-color: #3498db; transform: rotate(45deg); z-index: 1;"></div>
         <div style="position: absolute; top: 200px; left: 250px; width: 100px; height: 100px; background-color: #e74c3c; border-radius: 50%; z-index: 1;"></div>
@@ -23,8 +23,8 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  
-    `        
+
+  `        
       <div style="position: relative; background-color: #f9f9f9; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); border: 1px solid #ddd; border-radius: 8px;">
         <div style="position: absolute; top: 30px; width: 100%; height: 200px; background-image: url('https://picsum.photos/800/400'); background-size: cover; background-position: center;"></div>
         <div style="position: absolute; top: 250px; width: calc(100% - 60px); padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
@@ -33,8 +33,8 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  
-    `        
+
+  `        
       <div style="position: relative; background-color: #e1e1e1; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);">
         <div style="position: absolute; top: 20px;  width: calc(100% - 40px); height: 200px; background-image: url('https://picsum.photos/800/500'); background-size: cover; background-position: center;"></div>
         <div style="position: absolute; top: 240px;  width: calc(100% - 40px); padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
@@ -43,8 +43,8 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  
-    `        
+
+  `        
       <div style="position: relative; background-color: #fff; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
         <div style="position: absolute; top: 20px; width: 100%; height: 200px; background-color: #3498db; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;">Magazine Cover</div>
         <div style="position: absolute; top: 240px; width: calc(100% - 40px); padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
@@ -53,19 +53,39 @@ const htmlDesigns = [
         </div>
       </div>
     `,
-  
-    `        
-      <div style="position: relative; background-color: #f4f4f4; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
-        <div style="position: absolute; top: 20px; left: 20px; width: 100%; height: 200px; background-image: url('https://picsum.photos/800/600'); background-size: cover; background-position: center;"></div>
-        <div style="position: absolute; top: 240px; left: 20px; width: calc(100% - 40px); padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
-          <h2 style="margin: 0 0 10px; color: #333;">Art and Design</h2>
-          <p style="font-size: 16px; color: #666; line-height: 1.6;">Explore the world of art and design with this visually engaging page. The use of background images and layered content creates a dynamic and interactive layout.</p>
+
+  `        
+   <div class="flyer-container">
+    <div class="header">
+        <!-- SVG Shape -->
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#ff6f61" points="0,100 100,0 100,100"/>
+        </svg>
+    </div>
+
+    <div class="content">
+        <div class="title">Flyer Title</div>
+        <img src="https://picsum.photos/600/300" alt="Random Image from Picsum">
+        <div class="description">
+            This is a sample description for the flyer design. You can include images, text, and SVG shapes to create visually appealing layouts.
         </div>
-      </div>
+    </div>
+
+    <div class="footer">
+        <!-- SVG Shape -->
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#1c8adb" points="0,0 100,0 100,100"/>
+        </svg>
+    </div>
+</div>
     `,
-  ];
-  
-  export const getRandomHtmlDesign = () => {
-    const randomIndex = Math.floor(Math.random() * htmlDesigns.length);
-    return htmlDesigns[randomIndex];
-  };
+];
+
+export const getRandomHtmlDesign = () => {
+  const randomIndex = Math.floor(Math.random() * htmlDesigns.length);
+  return htmlDesigns[randomIndex];
+};
+
+export const getAllHtmlDesigns = () => {
+  return htmlDesigns;
+};
