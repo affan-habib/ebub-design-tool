@@ -55,19 +55,11 @@ const htmlDesigns = [
     `,
 
   `        
-   <div class="flyer-container">
-    <div class="header">
-        <!-- SVG Shape -->
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon fill="#ff6f61" points="0,100 100,0 100,100"/>
-        </svg>
-    </div>
-
-    <div class="content">
-        <div class="title">Flyer Title</div>
-        <img src="https://picsum.photos/600/300" alt="Random Image from Picsum">
-        <div class="description">
-            This is a sample description for the flyer design. You can include images, text, and SVG shapes to create visually appealing layouts.
+      <div style="position: relative; background-color: #f4f4f4; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+        <div style="position: absolute; top: 20px; left: 20px; width: 100%; height: 200px; background-image: url('https://picsum.photos/800/600'); background-size: cover; background-position: center;"></div>
+        <div style="position: absolute; top: 240px; left: 20px; width: calc(100% - 40px); padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+          <h2 style="margin: 0 0 10px; color: #333;">Art and Design</h2>
+          <p style="font-size: 16px; color: #666; line-height: 1.6;">Explore the world of art and design with this visually engaging page. The use of background images and layered content creates a dynamic and interactive layout.</p>
         </div>
     </div>
 
@@ -79,6 +71,61 @@ const htmlDesigns = [
     </div>
 </div>
     `,
+  `
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <span style="font-weight: bold;">Month Name</span>
+            <span style="font-weight: bold;">Year</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; max-width: 500px; margin: auto;">
+        <!-- Calendar Header -->
+        <div style="text-align: center; font-weight: bold;">Sun</div>
+        <div style="text-align: center; font-weight: bold;">Mon</div>
+        <div style="text-align: center; font-weight: bold;">Tue</div>
+        <div style="text-align: center; font-weight: bold;">Wed</div>
+        <div style="text-align: center; font-weight: bold;">Thu</div>
+        <div style="text-align: center; font-weight: bold;">Fri</div>
+        <div style="text-align: center; font-weight: bold;">Sat</div>
+        
+        <!-- Blank spaces before the 1st -->
+        <div></div> <!-- Sun -->
+        <div></div> <!-- Mon -->
+        <div></div> <!-- Tue -->
+        <div></div> <!-- Wed -->
+        <div></div> <!-- Thu -->
+        
+        <!-- Calendar Days -->
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">1</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">2</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">3</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">4</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">5</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">6</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">7</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">8</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">9</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">10</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">11</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">12</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">13</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">14</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">15</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">16</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">17</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">18</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">19</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">20</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">21</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">22</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">23</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">24</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">25</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">26</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">27</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">28</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">29</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">30</div>
+        <div style="padding: 10px; border: 1px solid #ddd; text-align: center;">31</div>
+    </div>`,
 ];
 
 export const getRandomHtmlDesign = () => {
@@ -86,6 +133,4 @@ export const getRandomHtmlDesign = () => {
   return htmlDesigns[randomIndex];
 };
 
-export const getAllHtmlDesigns = () => {
-  return htmlDesigns;
-};
+export const getAllDesigns = () => [...htmlDesigns];
