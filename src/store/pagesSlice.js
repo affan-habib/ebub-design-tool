@@ -4,7 +4,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const pagesSlice = createSlice({
   name: 'pages',
   initialState: {
-    pages: [],
+    pages: [
+      {
+        content: '',
+        margin: 0,
+        color: '#ffff'
+      }
+    ],
     currentPageIndex: 0,
     displayColorPicker: false,
   },
